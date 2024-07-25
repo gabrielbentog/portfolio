@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 
-const Biography: React.FC = () => {
+const Biography: React.FC<{ id: string }> = ({ id }) => {
   const typedElement = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Biography: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex flex-col min-h-[100dvh] bg-light-gray-gradient text-foreground">
+    <section id={id}className="flex flex-col min-h-[100dvh] bg-light-gray-gradient text-foreground">
       <main className="container mx-auto px-4 py-4 md:py-12 flex flex-col items-center justify-center flex-1">
         <div className="max-w-2xl w-full space-y-8 text-center">
           <div className="space-y-2">
