@@ -1,11 +1,28 @@
 "use client";
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => 
+    typeof window !== 'undefined' && window.localStorage.getItem('dark-mode') === 'true'
+  );
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleDarkMode = () => {
+    setIsDarkMode(prevMode => {
+      const newMode = !prevMode;
+      window.localStorage.setItem('dark-mode', newMode.toString());
+      return newMode;
+    });
+  };
 
   return (
     <header className="bg-gray-100 sticky top-0 z-50 w-full">
@@ -46,18 +63,24 @@ const Navbar: React.FC = () => {
             <path d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
-        <nav className={`hidden md:flex gap-6 text-sm font-medium text-grey-400 hover:text-grey-400`}>
-          <a href="#" className="hover:text-grey-400">Projetos</a>
-          <a href="#" className="hover:text-grey-400">Pricing</a>
-          <a href="#" className="hover:text-grey-400">Contact</a>
+        <button
+          className="ml-4 p-2 text-black"
+          onClick={toggleDarkMode}
+        >
+          {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
+        <nav className={`hidden md:flex gap-6 text-sm font-medium text-gray-400 hover:text-gray-600`}>
+          <a href="#" className="hover:text-gray-600">Projetos</a>
+          <a href="#" className="hover:text-gray-600">Pricing</a>
+          <a href="#" className="hover:text-gray-600">Contact</a>
         </nav>
       </div>
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-black p-4`}>
         <nav className="flex flex-col gap-4 text-sm font-medium text-gray-400">
-          <a href="#" className="hover:text-grey-400">Projetos</a>
-          <a href="#" className="hover:text-grey-400">Pricing</a>
-          <a href="#" className="hover:text-grey-400">Contact</a>
+          <a href="#" className="hover:text-gray-600">Projetos</a>
+          <a href="#" className="hover:text-gray-600">Pricing</a>
+          <a href="#" className="hover:text-gray-600">Contact</a>
         </nav>
       </div>
     </header>

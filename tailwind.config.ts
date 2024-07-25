@@ -29,9 +29,8 @@ const config: Config = {
         'hidden': 'hidden',
       },
       colors: {
-        // Adicione ou customize cores para o tema escuro
-        'dark-bg': '#1a202c',
-        'dark-text': '#f7fafc',
+        'dark-bg': '#121212',
+        'dark-text': '#e0e0e0',
       },
     },
   },

@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { FaPython, FaReact, FaJava } from 'react-icons/fa';
+import { FaPython, FaReact, FaJava, FaDocker } from 'react-icons/fa';
 import { VscRuby } from 'react-icons/vsc';
 import { SiPostgresql, SiHeroku } from 'react-icons/si';
+import { AiOutlineKubernetes } from "react-icons/ai";
 import KnowledgeCard from './KnowledgeCard';
 
 const KnowledgeSection: FC = () => {
@@ -31,6 +32,18 @@ const KnowledgeSection: FC = () => {
       description: "Desenvolvo interfaces de usuário dinâmicas e responsivas com React."
     },
     {
+      name: "Docker",
+      icon: <FaDocker className="icon" style={{ '--i': 4 } as React.CSSProperties} />,
+      color: "hover:text-purple-700",
+      description: "Tenho experiência básica com Docker, incluindo a criação e gerenciamento de containers para ambientes de desenvolvimento e produção."
+    },
+    {
+      name: "Kubernetes",
+      icon: <AiOutlineKubernetes className="icon" style={{ '--i': 4 } as React.CSSProperties} />,
+      color: "hover:text-purple-700",
+      description: "Tenho experiência básica com Kubernetes, incluindo a configuração e gerenciamento de clusters, deploy de aplicações, e uso de serviços como pods, deployments e serviços. Familiarizado com o conceito de escalabilidade e gerenciamento de configuração em ambientes de produção."
+    },
+    {
       name: "PostgreSQL",
       icon: <SiPostgresql className="icon" style={{ '--i': 3 } as React.CSSProperties} />,
       color: "hover:text-blue-700",
@@ -45,7 +58,7 @@ const KnowledgeSection: FC = () => {
   ];
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+    <section className="w-full py-12 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <div className="space-y-2">

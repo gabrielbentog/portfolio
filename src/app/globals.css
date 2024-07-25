@@ -18,7 +18,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: white;
+  background: rgb(var(--background-start-rgb));
+  transition: background-color 0.3s, color 0.3s;
 }
 
 @layer utilities {
@@ -94,30 +95,22 @@ body {
 
 @keyframes gradientShift {
   0% {
-    color: #4568dc; /* Cor inicial */
-    background: linear-gradient(
-      45deg,
-      #4568dc,
-      #b06ab3
-    ); /* Gradiente inicial */
+    color: #4568dc;
+    background: linear-gradient(45deg, #4568dc, #b06ab3);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   50% {
-    color: #b06ab3; /* Cor intermediária */
-    background: linear-gradient(
-      45deg,
-      #b06ab3,
-      #4568dc
-    ); /* Gradiente intermediário */
+    color: #b06ab3;
+    background: linear-gradient(45deg, #b06ab3, #4568dc);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   100% {
-    color: #4568dc; /* Cor final */
-    background: linear-gradient(45deg, #4568dc, #b06ab3); /* Gradiente final */
+    color: #4568dc;
+    background: linear-gradient(45deg, #4568dc, #b06ab3);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -126,19 +119,19 @@ body {
 
 .icon-container {
   display: flex;
-  gap: 16px; /* Espaçamento entre os cards */
+  gap: 16px;
 }
 
 .icon {
-  font-size: 3rem; /* Tamanho do ícone */
-  animation: gradientShift 3s infinite; /* Animação de gradiente */
-  animation-delay: calc(0s + (0.5s * var(--i))); /* Sequência de animação */
+  font-size: 3rem;
+  animation: gradientShift 3s infinite;
+  animation-delay: calc(0s + (0.5s * var(--i)));
 }
 
 body {
-  @apply bg-gray-100 text-black; /* Estilos padrão para o modo claro */
+  @apply bg-gray-100 text-black;
 }
 
 .dark body {
-  @apply bg-dark-bg text-dark-text; /* Estilos para o modo escuro */
+  @apply bg-gray-900 text-white;
 }
