@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
           {isDarkMode ? 'Light Mode' : 'Dark Mode'}
         </button>
         <nav className={`hidden md:flex gap-6 text-sm font-medium text-gray-400 hover:text-gray-600`}>
-          <a href="#biography" className="hover:text-gray-600">Home</a>
+          <a href="#biography" className="hover:text-gray-600">Ínicio</a>
           <a href="#knowledge" className="hover:text-gray-600">Conhecimentos</a>
           <a href="#projects" className="hover:text-gray-600">Projetos</a>
         </nav>
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-black p-4`}>
         <nav className="flex flex-col gap-4 text-sm font-medium text-gray-400">
-          <a href="#biography" className="hover:text-gray-600">Home</a>
+          <a href="#biography" className="hover:text-gray-600">Ínicio</a>
           <a href="#knowledge" className="hover:text-gray-600">Conhecimentos</a>
           <a href="#projects" className="hover:text-gray-600">Projetos</a>
         </nav>

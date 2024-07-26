@@ -3,6 +3,7 @@ import { FaPython, FaReact, FaJava, FaDocker } from 'react-icons/fa';
 import { VscRuby } from 'react-icons/vsc';
 import { SiPostgresql, SiHeroku } from 'react-icons/si';
 import { AiOutlineKubernetes } from "react-icons/ai";
+import { BiLogoTypescript } from "react-icons/bi";
 import KnowledgeCard from './KnowledgeCard';
 
 const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
@@ -23,7 +24,13 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
       name: "Java",
       icon: <FaJava className="icon" style={{ '--i': 2 } as React.CSSProperties} />,
       color: "hover:text-orange-500",
-      description: "Desenvolvo interfaces de usuário dinâmicas e responsivas com React."
+      description: "Tenho conhecimentos básicos em Java, como o desenvolvimento de aplicações simples e a compreensão dos conceitos fundamentais."
+    },
+    {
+      name: "TypeScript",
+      icon: <BiLogoTypescript className="icon" style={{ '--i': 2 } as React.CSSProperties} />,
+      color: "hover:text-orange-500",
+      description: "Tenho experiência com TypeScript, utilizando tipagem estática para melhorar a robustez e manutenção do código."
     },
     {
       name: "React",
@@ -41,7 +48,7 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
       name: "Kubernetes",
       icon: <AiOutlineKubernetes className="icon" style={{ '--i': 4 } as React.CSSProperties} />,
       color: "hover:text-purple-700",
-      description: "Tenho experiência básica com Kubernetes, incluindo a configuração e gerenciamento de clusters, deploy de aplicações, e uso de serviços como pods, deployments e serviços. Familiarizado com o conceito de escalabilidade e gerenciamento de configuração em ambientes de produção."
+      description: "Tenho experiência básica com Kubernetes, incluindo a configuração e gerenciamento de clusters, deploy de aplicações e serviços."
     },
     {
       name: "PostgreSQL",
@@ -64,7 +71,7 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Conhecimentos</h2>
             <p className="text-lg md:text-xl text-muted-foreground">
-              Tecnologias que eu possuo algum conhecimento.
+              Tecnologias que possuo algum conhecimento.
             </p>
           </div>
         </div>

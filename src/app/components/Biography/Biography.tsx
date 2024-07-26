@@ -11,11 +11,8 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
         strings: ['Olá, eu sou Gabriel Bento', 'Desenvolvedor Backend', 'Bo!'],
         typeSpeed: 50,
         backSpeed: 30,
-        backDelay: 1000,
-        startDelay: 500,
         cursorChar: '|',
         onComplete: (self: Typed) => {
-          // Ocultar o cursor após a conclusão
           const cursor = self.cursor;
           if (cursor) {
             cursor.classList.add('hidden-cursor');
