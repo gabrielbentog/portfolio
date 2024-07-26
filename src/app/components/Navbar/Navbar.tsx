@@ -73,6 +73,8 @@ const Navbar: React.FC = () => {
           <a href="#biography" className="hover:text-gray-600">Ínicio</a>
           <a href="#knowledge" className="hover:text-gray-600">Conhecimentos</a>
           <a href="#projects" className="hover:text-gray-600">Projetos</a>
+          <a href="#career" className="hover:text-gray-600">Carreira</a>
+          <a href="#contacts" className="hover:text-gray-600">Contatos</a>
         </nav>
       </div>
       {/* Mobile Menu */}
@@ -81,6 +83,8 @@ const Navbar: React.FC = () => {
           <a href="#biography" className="hover:text-gray-600">Ínicio</a>
           <a href="#knowledge" className="hover:text-gray-600">Conhecimentos</a>
           <a href="#projects" className="hover:text-gray-600">Projetos</a>
+          <a href="#career" className="hover:text-gray-600">carreira</a>
+          <a href="#contacts" className="hover:text-gray-600">Contantos</a>
         </nav>
       </div>
     </header>
