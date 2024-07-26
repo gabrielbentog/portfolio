@@ -1,4 +1,5 @@
-import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiGmail } from "react-icons/si";
 import Link from 'next/link';
 
 const ContactSection: React.FC<{ id: string }> = ({ id }) => {
@@ -12,24 +13,24 @@ const ContactSection: React.FC<{ id: string }> = ({ id }) => {
               Fique à vontade para me encontrar nos seguintes canais:
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-16"> {/* Aumentado o espaçamento entre ícones */}
             <div className="flex flex-col items-center">
               <Link href="#" className="text-muted-foreground hover:text-primary" prefetch={false}>
-                <FaGithub className="h-8 w-8" />
+                <SiGmail className="h-12 w-12" /> {/* Aumentado o tamanho do ícone */}
               </Link>
-              <p className="mt-2 text-muted-foreground">github@exemplo.com</p>
+              <p className="mt-4 text-muted-foreground">bentogdev@gmail.com</p> {/* Aumentado o espaçamento entre ícone e texto */}
             </div>
             <div className="flex flex-col items-center">
               <Link href="#" className="text-muted-foreground hover:text-primary" prefetch={false}>
-                <FaTwitter className="h-8 w-8" />
+                <FaGithub className="h-12 w-12" /> {/* Aumentado o tamanho do ícone */}
               </Link>
-              <p className="mt-2 text-muted-foreground">twitter@exemplo.com</p>
+              <p className="mt-4 text-muted-foreground">@gabrielbentog</p> {/* Aumentado o espaçamento entre ícone e texto */}
             </div>
             <div className="flex flex-col items-center">
-              <Link href="#" className="text-muted-foreground hover:text-primary" prefetch={false}>
-                <FaLinkedin className="h-8 w-8" />
+              <Link href="https://www.linkedin.com/in/gabriel-bento-21120a293/" className="text-muted-foreground hover:text-primary" prefetch={false}>
+                <FaLinkedin className="h-12 w-12" /> {/* Aumentado o tamanho do ícone */}
               </Link>
-              <p className="mt-2 text-muted-foreground">linkedin@exemplo.com</p>
+              <p className="mt-4 text-muted-foreground">Gabriel Bento</p> {/* Aumentado o espaçamento entre ícone e texto */}
             </div>
           </div>
         </div>
