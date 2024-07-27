@@ -32,6 +32,9 @@ const config: Config = {
         'dark-bg': '#121212',
         'dark-text': '#e0e0e0',
       },
+      extend: {
+        display: ['responsive'],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

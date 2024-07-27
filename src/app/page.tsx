@@ -4,6 +4,7 @@ import ProjectsSection from "./components/Projects/ProjectsSection";
 import KnowledgeSection from "./components/KnowledgeSection/KnowledgeSection";
 import CareerSection from "./components/CareerSection/CareerSection";
 import ContactSection from "./components/ContactSection/ContactSection";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
   return ( 
@@ -14,6 +15,7 @@ export default function Home() {
       <ProjectsSection id="projects" />
       <CareerSection id="career" />
       <ContactSection id="contacts"/>
+      <Footer />
     </>
   );
 }

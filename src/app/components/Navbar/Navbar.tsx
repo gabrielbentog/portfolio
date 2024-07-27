@@ -58,13 +58,14 @@ const Navbar: React.FC = () => {
             <path d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
-        <nav className={`hidden md:flex gap-6 text-sm font-medium text-gray-400 hover:text-gray-600`}>
+        <nav className="md-flex gap-6 text-sm font-medium text-gray-400">
           <a href="#biography" className="hover:text-gray-600">Ínicio</a>
           <a href="#knowledge" className="hover:text-gray-600">Conhecimentos</a>
           <a href="#projects" className="hover:text-gray-600">Projetos</a>
           <a href="#career" className="hover:text-gray-600">Carreira</a>
           <a href="#contacts" className="hover:text-gray-600">Contatos</a>
         </nav>
+
       </div>
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-black p-4`}>
