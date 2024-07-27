@@ -13,24 +13,24 @@ const ContactSection: React.FC<{ id: string }> = ({ id }) => {
               Fique à vontade para me encontrar nos seguintes canais:
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center"> {/* Usando grid para melhor controle */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
             <div className="flex flex-col items-center">
-              <Link href="#" className="text-muted-foreground hover:text-primary" prefetch={false}>
-                <SiGmail className="h-12 w-12" /> {/* Tamanho consistente dos ícones */}
+              <Link href="https://mail.google.com/mail#inbox?compose=new" className="text-muted-foreground hover:text-primary" prefetch={false} target='_blank' rel="noopener noreferrer">
+                <SiGmail className="h-12 w-12" />
               </Link>
-              <p className="mt-4 text-muted-foreground text-center">bentogdev@gmail.com</p> {/* Texto centralizado */}
+              <p className="mt-4 text-muted-foreground text-center">bentogdev@gmail.com</p>
             </div>
             <div className="flex flex-col items-center">
-              <Link href="#" className="text-muted-foreground hover:text-primary" prefetch={false}>
-                <FaGithub className="h-12 w-12" /> {/* Tamanho consistente dos ícones */}
+              <Link href="https://github.com/gabrielbentog" className="text-muted-foreground hover:text-primary" prefetch={false} target='_blank' rel="noopener noreferrer">
+                <FaGithub className="h-12 w-12" />
               </Link>
-              <p className="mt-4 text-muted-foreground text-center"> @gabrielbentog</p> {/* Texto centralizado */}
+              <p className="mt-4 text-muted-foreground text-center"> @gabrielbentog</p>
             </div>
             <div className="flex flex-col items-center">
-              <Link href="https://www.linkedin.com/in/gabriel-bento-21120a293/" className="text-muted-foreground hover:text-primary" prefetch={false}>
-                <FaLinkedin className="h-12 w-12" /> {/* Tamanho consistente dos ícones */}
+              <Link href="https://www.linkedin.com/in/gabriel-bento-21120a293/" className="text-muted-foreground hover:text-primary" prefetch={false} target='_blank' rel="noopener noreferrer">
+                <FaLinkedin className="h-12 w-12" />
               </Link>
-              <p className="mt-4 text-muted-foreground text-center">Gabriel Bento</p> {/* Texto centralizado */}
+              <p className="mt-4 text-muted-foreground text-center">Gabriel Bento</p>
             </div>
           </div>
         </div>

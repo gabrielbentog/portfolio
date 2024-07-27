@@ -8,7 +8,7 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
   useEffect(() => {
     if (typedElement.current) {
       const options = {
-        strings: ['Olá, eu sou Gabriel Bento', 'Desenvolvedor Backend', 'Bo!'],
+        strings: ['Olá, eu sou Gabriel Bento', 'Desenvolvedor Backend', 'Criador de soluções'],
         typeSpeed: 50,
         backSpeed: 30,
         cursorChar: '|',
@@ -27,20 +27,21 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
   }, []);
 
   return (
-    <section id={id}className="flex flex-col min-h-[100dvh] bg-light-gray-gradient text-foreground">
+    <section id={id} className="flex flex-col min-h-[100dvh] bg-light-gray-gradient text-foreground">
       <main className="container mx-auto px-4 py-4 md:py-12 flex flex-col items-center justify-center flex-1">
         <div className="max-w-2xl w-full space-y-8 text-center">
           <div className="space-y-2">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tighter relative gradient-text">
-              <span className="inline-block whitespace-nowrap overflow-hidden pr-2">
+              <span className="inline-block whitespace-pre-wrap break-words">
                 <span ref={typedElement}></span>
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground opacity-80 transition-opacity duration-500 ease-in-out hover:opacity-100 text-justify">
-              Sou um desenvolvedor backend com uma paixão por construir soluções robustas e eficientes para desafios complexos. Tenho experiência em criar e otimizar sistemas escaláveis, garantindo que a arquitetura e a lógica de negócios sejam sólidas e confiáveis. Embora meu foco principal esteja no backend, também possuo habilidades em front-end, o que me permite ter uma visão completa do desenvolvimento de software e colaborar eficazmente em projetos integrados. Estou sempre em busca de aprender novas tecnologias e aprimorar minhas habilidades para entregar soluções de alta qualidade.
+              Me chamo Gabriel Bento, sou um desenvolvedor backend com uma paixão por construir soluções robustas e eficientes para desafios complexos. Tenho experiência em criar e otimizar sistemas escaláveis, garantindo que a arquitetura e a lógica de negócios sejam sólidas e confiáveis. Embora meu foco principal esteja no backend, também possuo habilidades em front-end, o que me permite ter uma visão completa do desenvolvimento de software e colaborar eficazmente em projetos integrados. Estou sempre em busca de aprender novas tecnologias e aprimorar minhas habilidades para entregar soluções de alta qualidade.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Cards com ícones */}
             <div className="flex flex-col items-center gap-2 transform transition-transform duration-500 hover:scale-110 hover:text-blue-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
