@@ -2,17 +2,16 @@
 "use client";
 import React, { useState } from 'react';
 import ProjectModal from './ProjectModal';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-const ProjectCard: React.FC<{ title: string; description: string; imageUrl: string; link: string; gifUrl: string }> = ({ title, description, imageUrl, link, gifUrl }) => {
+const ProjectCard: React.FC<{ title: string; description: string; imageUrl: string; link: string; gifUrl: string; githubUrl: string }> = ({ title, description, imageUrl, link, gifUrl, githubUrl }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // Função para impedir a propagação do clique
-  const handleGithubIconClick = (event: React.MouseEvent) => {
+  const noOpenModal = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
 
@@ -33,15 +32,28 @@ const ProjectCard: React.FC<{ title: string; description: string; imageUrl: stri
           <h3 className="text-lg font-semibold text-white">{title}</h3>
           <p className="text-sm text-gray-300 line-clamp-2">{description}</p>
           <div className="mt-2 flex items-center space-x-4 self-end">
-            <a
+            {githubUrl && 
+              <a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center p-2 text-gray-300 bg-transparent border border-gray-300 rounded-md transition-all hover:bg-gray-800 hover:text-white"
-              onClick={handleGithubIconClick}
+              onClick={noOpenModal}
             >
               <FaGithub size={24} />
             </a>
+            }
+            {link &&
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-500 to-cyan-500 rounded-md shadow-md transition-transform transform"
+                onClick={noOpenModal}
+              >
+                Acessar Projeto
+              </a>
+            }
             <button
               onClick={openModal}
               className="inline-block px-4 py-2 text-sm font-medium text-primary bg-transparent border border-primary rounded-md transition-all hover:bg-primary hover:text-background"

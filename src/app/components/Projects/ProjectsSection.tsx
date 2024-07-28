@@ -1,34 +1,37 @@
 import ProjectCard from "./ProjectCard";
-
 const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
   const projects = [
     {
-      title: "Projeto 1",
-      description: "Uma breve descrição do primeiro projeto.ma breve descrição do primeiro projetoma breve descrição do primeiro projetoma breve descrição do primeiro projeto",
-      imageUrl: "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg?format=2500w",
-      link: "https://github.com",
-      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif"
+      title: "Sistema de Autenticação Completa: Solução Full Stack",
+      description: "Desenvolvi um sistema de autenticação completo que cobre todas as necessidades de segurança e usabilidade de uma aplicação moderna. Este projeto full stack combina uma API robusta com uma interface de usuário intuitiva. Utilizando tecnologias avançadas e práticas recomendadas, a solução oferece um alto nível de proteção e uma experiência de usuário sem fricções.",
+      imageUrl: "/images/auth_project.png",
+      link: "",
+      gifUrl: "",
+      githubUrl: ""
     },
     {
       title: "Projeto 2",
       description: "Uma breve descrição do segundo projeto.",
-      imageUrl: "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg?format=2500w",
-      link: "#",
-      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif"
+      imageUrl: "",
+      link: "",
+      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif",
+      githubUrl: ""
     },
     {
       title: "Projeto 3",
       description: "Uma breve descrição do terceiro projeto.",
-      imageUrl: "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg?format=2500w",
-      link: "#",
-      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif"
+      imageUrl: "",
+      link: "",
+      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif",
+      githubUrl: ""
     },
     {
       title: "Projeto 4",
       description: "Uma breve descrição do quarto projeto.",
-      imageUrl: "https://images.squarespace-cdn.com/content/v1/60f1a490a90ed8713c41c36c/1629223610791-LCBJG5451DRKX4WOB4SP/37-design-powers-url-structure.jpeg?format=2500w",
-      link: "#",
-      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif"
+      imageUrl: "",
+      link: "",
+      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif",
+      githubUrl: ""
     },
   ];
 
@@ -57,6 +60,7 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
                 imageUrl={project.imageUrl}
                 link={project.link}
                 gifUrl={project.gifUrl}
+                githubUrl={project.githubUrl}
               />
             </div>
           ))}

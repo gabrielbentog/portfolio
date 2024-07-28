@@ -8,16 +8,17 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
   useEffect(() => {
     if (typedElement.current) {
       const options = {
-        strings: ['Olá, eu sou Gabriel Bento', 'Desenvolvedor Backend', 'Bo!'],
+        strings: ['Olá, eu sou Gabriel Bento', 'Desenvolvedor Backend', 'Criador de soluções!'],
         typeSpeed: 50,
         backSpeed: 30,
         cursorChar: '|',
-        onComplete: (self: Typed) => {
-          const cursor = self.cursor;
-          if (cursor) {
-            cursor.classList.add('hidden-cursor');
-          }
-        }
+        loop: true,
+        // onComplete: (self: Typed) => {
+        //   const cursor = self.cursor;
+        //   if (cursor) {
+        //     cursor.classList.add('hidden-cursor');
+        //   }
+        // }
       };
       const typed = new Typed(typedElement.current, options);
       return () => {
