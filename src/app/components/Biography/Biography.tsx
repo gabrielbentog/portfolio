@@ -8,7 +8,7 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
   useEffect(() => {
     if (typedElement.current) {
       const options = {
-        strings: ['Olá, eu sou Gabriel Bento', 'Desenvolvedor Backend', 'Criador de soluções'],
+        strings: ['Olá, eu sou Gabriel Bento', 'Desenvolvedor Backend', 'Bo!'],
         typeSpeed: 50,
         backSpeed: 30,
         cursorChar: '|',
@@ -31,8 +31,8 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
       <main className="container mx-auto px-4 py-4 md:py-12 flex flex-col items-center justify-center flex-1">
         <div className="max-w-2xl w-full space-y-8 text-center">
           <div className="space-y-2">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter relative gradient-text">
-              <span className="inline-block whitespace-pre-wrap break-words">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tighter relative gradient-text">
+              <span className="inline-block whitespace-nowrap overflow-hidden pr-2">
                 <span ref={typedElement}></span>
               </span>
             </h1>
@@ -41,7 +41,6 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {/* Cards com ícones */}
             <div className="flex flex-col items-center gap-2 transform transition-transform duration-500 hover:scale-110 hover:text-blue-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

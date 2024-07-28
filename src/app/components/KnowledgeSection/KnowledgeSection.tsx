@@ -65,7 +65,7 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
   ];
 
   return (
-    <section id= {id}className="w-full py-12 md:py-24 lg:py-32">
+    <section id={id} className="w-full py-12 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
           <div className="space-y-2">
@@ -75,7 +75,9 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
             </p>
           </div>
         </div>
-        <div className="mt-12 flex flex-wrap justify-center gap-20">
+        
+        {/* Exibição padrão para telas médias e grandes */}
+        <div className="hidden md:flex mt-12 flex-wrap justify-center gap-20">
           {knowledges.map((knowledge, index) => (
             <KnowledgeCard
               key={index}
@@ -84,6 +86,20 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
               color={knowledge.color}
               description={knowledge.description}
             />
+          ))}
+        </div>
+        
+        {/* Exibição horizontal para telas pequenas */}
+        <div className="flex md:hidden mt-12 gap-4 overflow-x-auto pb-4">
+          {knowledges.map((knowledge, index) => (
+            <div key={index} className="min-w-max">
+              <KnowledgeCard
+                icon={knowledge.icon}
+                name={knowledge.name}
+                color={knowledge.color}
+                description={knowledge.description}
+              />
+            </div>
           ))}
         </div>
       </div>
