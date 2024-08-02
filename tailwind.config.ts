@@ -35,6 +35,9 @@ const config: Config = {
       extend: {
         display: ['responsive'],
       },
+      screens: {
+        'md': '768px',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

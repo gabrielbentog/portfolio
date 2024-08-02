@@ -149,3 +149,14 @@ body {
 .dark body {
   @apply bg-gray-900 text-white;
 }
+
+@media (min-width: 768px) {
+  .show-on-md {
+    display: flex !important;
+  }
+}
+@media (max-width: 767px) {
+  .show-on-md {
+    display: none !important;
+  }
+}

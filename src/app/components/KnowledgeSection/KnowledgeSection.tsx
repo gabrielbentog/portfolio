@@ -76,8 +76,7 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
           </div>
         </div>
         
-        {/* Exibição padrão para telas médias e grandes */}
-        <div className="hidden md:flex mt-12 flex-wrap justify-center gap-20">
+        <div className="show-on-md mt-12 flex-wrap justify-center gap-20">
           {knowledges.map((knowledge, index) => (
             <KnowledgeCard
               key={index}
@@ -89,7 +88,6 @@ const KnowledgeSection: React.FC<{ id: string }> = ({ id }) => {
           ))}
         </div>
         
-        {/* Exibição horizontal para telas pequenas */}
         <div className="flex md:hidden mt-12 gap-4 overflow-x-auto pb-4">
           {knowledges.map((knowledge, index) => (
             <div key={index} className="min-w-max">
