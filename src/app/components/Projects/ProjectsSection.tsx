@@ -3,36 +3,20 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
   const projects = [
     {
       title: "Sistema de Autenticação Completa: Solução Full Stack",
-      description: "Desenvolvi um sistema de autenticação completo que cobre todas as necessidades de segurança e usabilidade de uma aplicação moderna. Este projeto full stack combina uma API robusta com uma interface de usuário intuitiva. Utilizando tecnologias avançadas e práticas recomendadas, a solução oferece um alto nível de proteção e uma experiência de usuário sem fricções.",
+      description: "Um sistema de autenticação completo que cobre todas as necessidades de segurança e usabilidade de uma aplicação moderna. Este projeto full stack combina uma API robusta com uma interface de usuário intuitiva. Utilizando tecnologias avançadas e práticas recomendadas, a solução oferece um alto nível de proteção e uma experiência de usuário sem fricções.",
       imageUrl: "/images/auth_project.png",
       link: "",
       gifUrl: "",
       githubUrl: ""
     },
     {
-      title: "Projeto 2",
-      description: "Uma breve descrição do segundo projeto.",
-      imageUrl: "",
+      title: "Gerador de senhas",
+      description: "Um aplicativo simples de gerador de senhas utilizando Tkinter em Python. Este programa permite aos usuários criar senhas seguras de forma fácil, personalizando os critérios de complexidade, como comprimento e tipos de caracteres.",
+      imageUrl: "/images/password_generator.png",
       link: "",
-      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif",
-      githubUrl: ""
-    },
-    {
-      title: "Projeto 3",
-      description: "Uma breve descrição do terceiro projeto.",
-      imageUrl: "",
-      link: "",
-      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif",
-      githubUrl: ""
-    },
-    {
-      title: "Projeto 4",
-      description: "Uma breve descrição do quarto projeto.",
-      imageUrl: "",
-      link: "",
-      gifUrl: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2N3ZGZ2b2k3ODR4bm4xanJrNGMwNncwbGJwbm03eWRtZnF5eGFsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/07YXmuBuhQYBduC6pH/giphy.gif",
-      githubUrl: ""
-    },
+      gifUrl: "/gifs/password_generator.gif",
+      githubUrl: "https://github.com/gabrielbentog/password_geneartor"
+    }
   ];
 
   return (

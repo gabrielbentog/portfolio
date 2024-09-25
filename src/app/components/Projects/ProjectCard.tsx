@@ -34,7 +34,7 @@ const ProjectCard: React.FC<{ title: string; description: string; imageUrl: stri
           <div className="mt-2 flex items-center space-x-4 self-end">
             {githubUrl && 
               <a
-              href={link}
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center p-2 text-gray-300 bg-transparent border border-gray-300 rounded-md transition-all hover:bg-gray-800 hover:text-white"
@@ -71,6 +71,7 @@ const ProjectCard: React.FC<{ title: string; description: string; imageUrl: stri
         description={description}
         gifUrl={gifUrl}
         link={link}
+        githubUrl={githubUrl}
       />
     </>
   );

@@ -11,9 +11,10 @@ interface ProjectModalProps {
   description: string;
   gifUrl: string;
   link: string;
+  githubUrl: string;
 }
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, description, gifUrl, link }) => {
+const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, description, gifUrl, link, githubUrl }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: React.MouseEvent) => {
@@ -43,15 +44,15 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, des
         <img
           src={gifUrl}
           alt={`${title} GIF`}
-          className="w-full h-72 object-cover rounded-t-lg"
+            className="w-full h-full object-contain rounded-t-lg"
         />
         <div className="p-6 flex flex-col justify-between h-full">
-          <div>
-            <h2 className="text-3xl font-bold mb-2">{title}</h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">{description}</p>
-          </div>
-          <a
-            href={link}
+        <div>
+          <h2 className="text-3xl font-bold mb-2">{title}</h2>
+          <p className="text-gray-700 dark:text-gray-300 mb-8 text-lg">{description}</p>
+        </div>
+        { githubUrl && <a
+            href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 absolute bottom-6 right-6"
@@ -59,6 +60,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, des
             <FaGithub size={24} />
             <span className="ml-2">Ver no GitHub</span>
           </a>
+        }
         </div>
       </div>
     </div>,
