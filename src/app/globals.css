@@ -160,3 +160,26 @@ body {
     display: none !important;
   }
 }
+
+/* Estilo para o contêiner da barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px; /* Largura para barras verticais */
+  height: 10px; /* Altura para barras horizontais */
+}
+
+/* Estilo para o trilho da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: #f4f4f4; /* Cor neutra para o trilho */
+  border-radius: 5px; /* Arredondamento para um visual suave */
+}
+
+/* Estilo para o "polegar" (a parte que desliza) */
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0; /* Cinza médio para o polegar */
+  border-radius: 5px; /* Arredondamento para o polegar */
+}
+
+/* Estilo para o polegar ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Cinza escuro ao passar o mouse */
+}
