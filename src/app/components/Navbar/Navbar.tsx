@@ -1,47 +1,52 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { FaRegMoon, FaSun } from 'react-icons/fa';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() => 
-    typeof window !== 'undefined' && window.localStorage.getItem('dark-mode') === 'true'
-  );
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { lang, t, toggleLang } = useLanguage();
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
+    const stored = localStorage.getItem('dark-mode');
+    const dark = stored === null ? true : stored === 'true';
+    setIsDarkMode(dark);
+    document.documentElement.classList.toggle('dark', dark);
+  }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleDarkMode = () => {
-    setIsDarkMode(prevMode => {
-      const newMode = !prevMode;
-      window.localStorage.setItem('dark-mode', newMode.toString());
-      return newMode;
+    setIsDarkMode((prev) => {
+      const next = !prev;
+      localStorage.setItem('dark-mode', String(next));
+      document.documentElement.classList.toggle('dark', next);
+      return next;
     });
   };
 
+  const linkClass = "hover:text-gray-900 dark:hover:text-gray-100 transition-colors";
+
   return (
-    <header className="bg-gray-100 sticky top-0 z-50 w-full">
+    <header className="bg-gray-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 w-full">
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-4">
           <button
-            className="flex items-center text-black"
+            className="flex items-center text-black dark:text-white"
             onClick={toggleDarkMode}
+            aria-label="Toggle dark mode"
           >
-            {isDarkMode ? <FaSun size={24} /> : <FaRegMoon size={24} />}
+            {isDarkMode ? <FaSun size={22} /> : <FaRegMoon size={22} />}
           </button>
           <a href="#" className="flex items-center gap-2">
-            <span className="text-xl font-semibold text-black">Gabriel Bento</span>
+            <span className="text-xl font-semibold text-black dark:text-white">Gabriel Bento</span>
           </a>
         </div>
+
+        {/* Mobile hamburger */}
         <button
-          className="md:hidden flex items-center text-black"
-          onClick={toggleMenu}
+          className="md:hidden flex items-center text-black dark:text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,23 +63,37 @@ const Navbar: React.FC = () => {
             <path d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
-        <nav className="md-flex gap-6 text-sm font-medium text-gray-400">
-          <a href="#biography" className="hover:text-gray-600">Ínicio</a>
-          <a href="#knowledge" className="hover:text-gray-600">Conhecimentos</a>
-          <a href="#projects" className="hover:text-gray-600">Projetos</a>
-          <a href="#career" className="hover:text-gray-600">Carreira</a>
-          <a href="#contacts" className="hover:text-gray-600">Contatos</a>
-        </nav>
 
+        {/* Desktop nav */}
+        <nav className="md-flex gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
+          <a href="#biography" className={linkClass}>{t.nav.start}</a>
+          <a href="#knowledge" className={linkClass}>{t.nav.knowledge}</a>
+          <a href="#projects" className={linkClass}>{t.nav.projects}</a>
+          <a href="#career" className={linkClass}>{t.nav.career}</a>
+          <a href="#contacts" className={linkClass}>{t.nav.contacts}</a>
+          <button
+            onClick={toggleLang}
+            className="text-xs font-mono border border-gray-400 dark:border-gray-600 rounded px-2 py-0.5 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+          >
+            {lang === 'pt' ? 'EN' : 'PT'}
+          </button>
+        </nav>
       </div>
-      {/* Mobile Menu */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-black p-4`}>
+
+      {/* Mobile menu */}
+      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-gray-900 p-4`}>
         <nav className="flex flex-col gap-4 text-sm font-medium text-gray-400">
-          <a href="#biography" className="hover:text-gray-600">Ínicio</a>
-          <a href="#knowledge" className="hover:text-gray-600">Conhecimentos</a>
-          <a href="#projects" className="hover:text-gray-600">Projetos</a>
-          <a href="#career" className="hover:text-gray-600">Carreira</a>
-          <a href="#contacts" className="hover:text-gray-600">Contatos</a>
+          <a href="#biography" className="hover:text-gray-200" onClick={() => setIsMenuOpen(false)}>{t.nav.start}</a>
+          <a href="#knowledge" className="hover:text-gray-200" onClick={() => setIsMenuOpen(false)}>{t.nav.knowledge}</a>
+          <a href="#projects" className="hover:text-gray-200" onClick={() => setIsMenuOpen(false)}>{t.nav.projects}</a>
+          <a href="#career" className="hover:text-gray-200" onClick={() => setIsMenuOpen(false)}>{t.nav.career}</a>
+          <a href="#contacts" className="hover:text-gray-200" onClick={() => setIsMenuOpen(false)}>{t.nav.contacts}</a>
+          <button
+            onClick={toggleLang}
+            className="self-start text-xs font-mono border border-gray-600 rounded px-2 py-0.5 hover:text-gray-200 transition-colors"
+          >
+            {lang === 'pt' ? 'EN' : 'PT'}
+          </button>
         </nav>
       </div>
     </header>

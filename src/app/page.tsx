@@ -1,3 +1,4 @@
+import { LanguageProvider } from "./context/LanguageContext";
 import Navbar from "./components/Navbar/Navbar";
 import Biography from "./components/Biography/Biography";
 import ProjectsSection from "./components/Projects/ProjectsSection";
@@ -7,15 +8,15 @@ import ContactSection from "./components/ContactSection/ContactSection";
 import Footer from "./components/Footer/Footer";
 
 export default function Home() {
-  return ( 
-    <>
+  return (
+    <LanguageProvider>
       <Navbar />
       <Biography id="biography" />
       <KnowledgeSection id="knowledge" />
       <ProjectsSection id="projects" />
       <CareerSection id="career" />
-      <ContactSection id="contacts"/>
+      <ContactSection id="contacts" />
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }
