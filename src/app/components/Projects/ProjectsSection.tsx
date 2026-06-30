@@ -7,33 +7,28 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
   const { t } = useLanguage();
 
   return (
-    <section id={id} className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
+    <section id={id} className="w-full py-16 md:py-24 lg:py-28 bg-paper dark:bg-ink">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-900 dark:text-gray-100">
-              {t.projects.title}
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
-              {t.projects.subtitle}
-            </p>
-          </div>
+        <div className="max-w-2xl mx-auto text-center space-y-2">
+          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl text-ink dark:text-paper">
+            {t.projects.title}
+          </h2>
+          <p className="text-lg text-ink-muted">
+            {t.projects.subtitle}
+          </p>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {t.projects.items.map((project, index) => (
-            <div
+            <ProjectCard
               key={index}
-              className="relative transform transition duration-500 hover:scale-[1.02] hover:shadow-xl"
-            >
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                imageUrl={project.imageUrl}
-                link={project.link}
-                gifUrl={project.gifUrl}
-                githubUrl={project.githubUrl}
-              />
-            </div>
+              title={project.title}
+              role={project.role}
+              description={project.description}
+              stack={project.stack}
+              imageUrl={project.imageUrl}
+              link={project.link}
+              githubUrl={project.githubUrl}
+            />
           ))}
         </div>
       </div>

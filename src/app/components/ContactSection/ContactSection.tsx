@@ -8,62 +8,61 @@ const ContactSection: React.FC<{ id: string }> = ({ id }) => {
   const { t } = useLanguage();
 
   return (
-    <section id={id} className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-900">
-      <div className="container max-w-4xl px-4 md:px-6 mx-auto">
-        <div className="text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-900 dark:text-gray-100">
-              {t.contact.title}
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              {t.contact.subtitle}
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
-            <div className="flex flex-col items-center gap-3">
-              <Link
-                href="mailto:bentogdev@gmail.com"
-                className="text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <SiGmail className="h-12 w-12" />
-              </Link>
-              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">bentogdev@gmail.com</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <Link
-                href="https://github.com/gabrielbentog"
-                className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="h-12 w-12" />
-              </Link>
-              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">@gabrielbentog</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <Link
-                href="https://www.linkedin.com/in/gabriel-bento-21120a293/"
-                className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin className="h-12 w-12" />
-              </Link>
-              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">Gabriel Bento</p>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <a
-                href="/curriculo.pdf"
-                download
-                className="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors"
-              >
-                <FaFileAlt className="h-12 w-12" />
-              </a>
-              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">{t.contact.downloadCV}</p>
-            </div>
-          </div>
+    <section id={id} className="w-full bg-ink py-20 md:py-28">
+      <div className="container mx-auto max-w-2xl px-4 text-center md:px-6">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-amber">
+          {t.contact.eyebrow}
+        </p>
+        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-paper sm:text-4xl md:text-5xl">
+          {t.contact.title}
+        </h2>
+        <p className="mx-auto mt-4 max-w-md text-lg text-paper/70">
+          {t.contact.subtitle}
+        </p>
+
+        <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-paper/15 px-4 py-1.5">
+          <span className="status-dot h-1.5 w-1.5 rounded-full bg-ok" />
+          <span className="font-mono text-xs text-paper/80">{t.contact.statusValue}</span>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center gap-3">
+          <Link
+            href="mailto:bentogdev@gmail.com"
+            className="inline-flex items-center gap-2 rounded-md bg-amber px-7 py-3.5 text-base font-semibold text-ink transition-colors hover:bg-amber-dim focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
+          >
+            <SiGmail className="h-5 w-5" />
+            {t.contact.primaryCta}
+          </Link>
+          <span className="font-mono text-sm text-paper/50">bentogdev@gmail.com</span>
+        </div>
+
+        <div className="mt-12 flex items-center justify-center gap-8 border-t border-paper/10 pt-8">
+          <Link
+            href="https://github.com/gabrielbentog"
+            className="flex flex-col items-center gap-2 text-paper/60 transition-colors hover:text-paper"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub className="h-6 w-6" />
+            <span className="font-mono text-xs">GitHub</span>
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/gabriel-bento-21120a293/"
+            className="flex flex-col items-center gap-2 text-paper/60 transition-colors hover:text-paper"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="h-6 w-6" />
+            <span className="font-mono text-xs">LinkedIn</span>
+          </Link>
+          <a
+            href="/curriculo.pdf"
+            download
+            className="flex flex-col items-center gap-2 text-paper/60 transition-colors hover:text-paper"
+          >
+            <FaFileAlt className="h-6 w-6" />
+            <span className="font-mono text-xs">{t.contact.downloadCV}</span>
+          </a>
         </div>
       </div>
     </section>

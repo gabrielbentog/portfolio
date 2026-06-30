@@ -9,34 +9,36 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        'ligh-gray-gradient': "linear-gradient(to right, #f5f5f5, #e0e0e0)",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        sans: ["var(--font-sans)", "sans-serif"],
+        display: ["var(--font-display)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+      colors: {
+        ink: {
+          DEFAULT: "#0B0E14",
+          surface: "#131826",
+          border: "#232938",
+          muted: "#8B93A7",
+        },
+        paper: {
+          DEFAULT: "#F2EFE6",
+          surface: "#FFFFFF",
+          border: "#E4DFD0",
+          muted: "#6B7280",
+        },
+        amber: {
+          DEFAULT: "#FFB454",
+          dim: "#C98A3A",
+        },
+        ok: "#34D399",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out"
-      },
-      transform: {
-        'rotate-y-180': 'rotateY(180deg)',
-      },
-      perspective: {
-        '1000': '1000px',
-      },
-      backfaceVisibility: {
-        'hidden': 'hidden',
-      },
-      colors: {
-        'dark-bg': '#121212',
-        'dark-text': '#e0e0e0',
-      },
-      extend: {
-        display: ['responsive'],
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       screens: {
-        'md': '768px',
+        md: "768px",
       },
     },
   },

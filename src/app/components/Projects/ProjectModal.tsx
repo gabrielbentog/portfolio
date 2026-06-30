@@ -2,20 +2,22 @@
 "use client";
 import React, { useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 
 interface ProjectModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
+  role: string;
   description: string;
-  gifUrl: string;
+  stack: string[];
+  imageUrl: string;
   link: string;
   githubUrl: string;
 }
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, description, gifUrl, link, githubUrl }) => {
+const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, role, description, stack, imageUrl, link, githubUrl }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
 
@@ -29,41 +31,55 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, des
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm"
       onClick={handleClickOutside}
     >
       <div
         ref={modalRef}
-        className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-3xl w-full"
+        className="relative w-full max-w-2xl rounded-lg border border-paper-border dark:border-ink-border bg-paper-surface dark:bg-ink-surface shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 text-xl leading-none"
+          aria-label="Close"
+          className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-paper dark:bg-ink text-ink-muted hover:text-ink dark:hover:text-paper text-xl leading-none"
         >
           &times;
         </button>
-        {gifUrl && (
+        {imageUrl && (
           <img
-            src={gifUrl}
-            alt={`${title} GIF`}
-            className="w-full h-full object-contain rounded-t-lg"
+            src={imageUrl}
+            alt={title}
+            className="w-full aspect-video object-cover rounded-t-lg border-b border-paper-border dark:border-ink-border"
           />
         )}
-        <div className="p-6 flex flex-col justify-between">
+        <div className="p-6 flex flex-col gap-4">
           <div>
-            <h2 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">{title}</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 text-base leading-relaxed">{description}</p>
+            <span className="font-mono text-xs uppercase tracking-wider text-amber-dim dark:text-amber">
+              {role}
+            </span>
+            <h2 className="font-display text-2xl font-semibold mt-1 text-ink dark:text-paper">{title}</h2>
           </div>
-          <div className="flex gap-4 flex-wrap">
+          <p className="text-ink-muted leading-relaxed">{description}</p>
+          <div className="flex flex-wrap gap-1.5">
+            {stack.map((tag) => (
+              <span
+                key={tag}
+                className="font-mono text-[11px] rounded border border-paper-border dark:border-ink-border px-2 py-0.5 text-ink-muted"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-5 flex-wrap pt-2 border-t border-paper-border dark:border-ink-border">
             {githubUrl && (
               <a
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
+                className="inline-flex items-center gap-2 pt-4 text-sm text-ink dark:text-paper hover:text-ink-muted dark:hover:text-paper/70"
               >
-                <FaGithub size={20} />
+                <FaGithub size={18} />
                 <span>{t.projects.viewOnGitHub}</span>
               </a>
             )}
@@ -72,9 +88,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, des
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 hover:underline"
+                className="inline-flex items-center gap-2 pt-4 text-sm font-semibold text-amber-dim dark:text-amber hover:underline"
               >
                 {t.projects.accessProject}
+                <FaExternalLinkAlt size={12} />
               </a>
             )}
           </div>

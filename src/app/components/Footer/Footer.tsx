@@ -5,8 +5,8 @@ import { useLanguage } from '../../context/LanguageContext';
 const Footer: React.FC = () => {
   const { t } = useLanguage();
   return (
-    <footer className="bg-gray-800 dark:bg-gray-950 text-gray-300 py-4 text-center border-t border-gray-700">
-      <p className="text-sm">
+    <footer className="border-t border-paper-border dark:border-ink-border bg-paper-surface dark:bg-ink py-6 text-center">
+      <p className="font-mono text-xs text-ink-muted">
         &copy; {new Date().getFullYear()} Gabriel Bento. {t.footer.rights}
       </p>
     </footer>

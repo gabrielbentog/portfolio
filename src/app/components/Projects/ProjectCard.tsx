@@ -7,66 +7,81 @@ import { useLanguage } from '../../context/LanguageContext';
 
 interface ProjectCardProps {
   title: string;
+  role: string;
   description: string;
+  stack: string[];
   imageUrl: string;
   link: string;
-  gifUrl: string;
   githubUrl: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, link, gifUrl, githubUrl }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, role, description, stack, imageUrl, link, githubUrl }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const { t } = useLanguage();
 
   const isPrivate = !githubUrl && !link;
-  const hasGif = !!gifUrl;
-  const showGif = isHovered && hasGif;
-
-  const noOpenModal = (event: React.MouseEvent) => event.stopPropagation();
+  const stopPropagation = (event: React.MouseEvent) => event.stopPropagation();
 
   return (
     <>
       <div
-        className="group relative overflow-hidden rounded-lg bg-white dark:bg-gray-800 shadow-sm transition-all hover:shadow-md cursor-pointer border border-gray-200 dark:border-gray-700"
+        className="group flex h-full flex-col overflow-hidden rounded-lg border border-paper-border dark:border-ink-border bg-paper-surface dark:bg-ink-surface transition-colors hover:border-ink/30 dark:hover:border-paper/30 cursor-pointer"
         onClick={() => setIsModalOpen(true)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         {imageUrl ? (
           <img
-            src={showGif ? gifUrl : imageUrl}
+            src={imageUrl}
             alt={title}
-            className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="aspect-video w-full object-cover"
           />
         ) : (
-          <div className="aspect-video w-full bg-gradient-to-br from-blue-950 via-gray-900 to-purple-950 flex items-center justify-center">
-            <span className="text-5xl font-mono font-bold text-blue-500/20 select-none">{'</>'}</span>
+          <div className="aspect-video w-full bg-ink dark:bg-paper-border/10 flex items-center justify-center border-b border-paper-border dark:border-ink-border">
+            <span className="font-mono text-4xl text-paper/15 dark:text-paper/10 select-none">{'</>'}</span>
           </div>
         )}
 
-        <div className="absolute inset-0 flex flex-col items-start justify-end p-4 transition-all bg-gradient-to-t from-black/70 via-black/20 to-transparent">
-          <h3 className="text-lg font-semibold text-white leading-tight mb-1">{title}</h3>
-          <p className="text-sm text-gray-300 line-clamp-2 mb-2">{description}</p>
-          <div className="flex items-center gap-3 self-end">
+        <div className="flex flex-1 flex-col gap-3 p-5">
+          <div className="flex items-center justify-between gap-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-amber-dim dark:text-amber">
+              {role}
+            </span>
             {isPrivate && (
-              <div
-                className="flex items-center gap-1.5 text-xs text-gray-300 border border-gray-500 rounded px-2 py-1"
-                onClick={noOpenModal}
-              >
+              <span className="inline-flex items-center gap-1.5 text-xs text-ink-muted">
                 <FaLock size={10} />
                 {t.projects.privateCode}
-              </div>
+              </span>
             )}
+          </div>
+
+          <h3 className="font-display text-lg font-semibold leading-snug text-ink dark:text-paper">
+            {title}
+          </h3>
+          <p className="text-sm leading-relaxed text-ink-muted line-clamp-3">
+            {description}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {stack.map((tag) => (
+              <span
+                key={tag}
+                className="font-mono text-[11px] rounded border border-paper-border dark:border-ink-border px-2 py-0.5 text-ink-muted"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-auto flex items-center gap-4 pt-4 border-t border-paper-border dark:border-ink-border">
             {githubUrl && (
               <a
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center p-2 text-gray-300 bg-transparent border border-gray-400 rounded-md transition-all hover:bg-gray-800 hover:text-white"
-                onClick={noOpenModal}
+                className="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-ink dark:hover:text-paper transition-colors"
+                onClick={stopPropagation}
               >
-                <FaGithub size={20} />
+                <FaGithub size={16} />
+                GitHub
               </a>
             )}
             {link && (
@@ -74,15 +89,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-500 to-cyan-500 rounded-md shadow-md"
-                onClick={noOpenModal}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-dim dark:text-amber hover:underline"
+                onClick={stopPropagation}
               >
                 {t.projects.accessProject}
+                <FaExternalLinkAlt size={11} />
               </a>
             )}
             <button
               onClick={(e) => { e.stopPropagation(); setIsModalOpen(true); }}
-              className="inline-block px-4 py-2 text-sm font-medium text-white bg-transparent border border-white/50 rounded-md transition-all hover:bg-white/10"
+              className="ml-auto text-sm font-medium text-ink-muted hover:text-ink dark:hover:text-paper transition-colors"
             >
               {t.projects.viewMore}
             </button>
@@ -94,8 +110,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title={title}
+        role={role}
         description={description}
-        gifUrl={gifUrl}
+        stack={stack}
+        imageUrl={imageUrl}
         link={link}
         githubUrl={githubUrl}
       />
