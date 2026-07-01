@@ -5,6 +5,19 @@ import { createPortal } from 'react-dom';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 
+const slugify = (title: string) =>
+  title
+    .toLowerCase()
+    .normalize('NFD')
+    .split('')
+    .filter((char) => {
+      const code = char.charCodeAt(0);
+      return code < 0x0300 || code > 0x036f;
+    })
+    .join('')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+
 interface ProjectModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -46,12 +59,20 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, title, rol
         >
           &times;
         </button>
-        {imageUrl && (
+        {imageUrl ? (
           <img
             src={imageUrl}
             alt={title}
             className="w-full aspect-video object-cover rounded-t-lg border-b border-paper-border dark:border-ink-border"
           />
+        ) : (
+          <div className="aspect-video w-full flex flex-col justify-between gap-2 rounded-t-lg border-b border-paper-border dark:border-ink-border bg-ink px-6 py-5">
+            <div className="flex items-center justify-between font-mono text-xs uppercase tracking-wider">
+              <span className="text-amber">GET</span>
+              <span className="text-ok">200 OK</span>
+            </div>
+            <span className="font-mono text-base text-paper/35 truncate">/{slugify(title)}</span>
+          </div>
         )}
         <div className="p-6 flex flex-col gap-4">
           <div>

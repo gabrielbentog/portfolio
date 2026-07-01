@@ -30,12 +30,15 @@ const translations = {
       },
       ctaPrimary: 'Falar comigo',
       ctaSecondary: 'Ver projetos',
+      scrollHint: 'scroll',
     },
     knowledge: {
+      eyebrow: 'GET /skills',
       title: 'Conhecimentos',
       subtitle: 'Ferramentas que uso para construir e manter sistemas em produção.',
     },
     projects: {
+      eyebrow: 'GET /projects',
       title: 'Projetos',
       subtitle: 'Uma seleção do que já construí — do backend ao deploy.',
       privateCode: 'Código privado',
@@ -77,8 +80,11 @@ const translations = {
       ],
     },
     career: {
+      eyebrow: 'GET /career/log',
       title: 'Carreira',
       subtitle: 'Minha trajetória profissional.',
+      logLabel: 'career.log',
+      currentTag: 'atual',
       items: [
         {
           company: 'Estudologia',
@@ -105,6 +111,7 @@ const translations = {
     },
     footer: {
       rights: 'Todos os direitos reservados.',
+      systemStatus: 'sistema operacional',
     },
   },
   en: {
@@ -132,12 +139,15 @@ const translations = {
       },
       ctaPrimary: 'Get in touch',
       ctaSecondary: 'See projects',
+      scrollHint: 'scroll',
     },
     knowledge: {
+      eyebrow: 'GET /skills',
       title: 'Skills',
       subtitle: 'Tools I use to build and run systems in production.',
     },
     projects: {
+      eyebrow: 'GET /projects',
       title: 'Projects',
       subtitle: "A selection of what I've built — from backend to deploy.",
       privateCode: 'Private code',
@@ -179,8 +189,11 @@ const translations = {
       ],
     },
     career: {
+      eyebrow: 'GET /career/log',
       title: 'Career',
       subtitle: 'My professional journey.',
+      logLabel: 'career.log',
+      currentTag: 'current',
       items: [
         {
           company: 'Estudologia',
@@ -207,6 +220,7 @@ const translations = {
     },
     footer: {
       rights: 'All rights reserved.',
+      systemStatus: 'system operational',
     },
   },
 }

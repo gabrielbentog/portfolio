@@ -8,7 +8,7 @@ const ContactSection: React.FC<{ id: string }> = ({ id }) => {
   const { t } = useLanguage();
 
   return (
-    <section id={id} className="w-full bg-ink py-20 md:py-28">
+    <section id={id} className="w-full border-t border-ink-border bg-ink py-20 md:py-28">
       <div className="container mx-auto max-w-2xl px-4 text-center md:px-6">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-amber">
           {t.contact.eyebrow}

@@ -21,6 +21,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, role, description, sta
 
   const isPrivate = !githubUrl && !link;
   const stopPropagation = (event: React.MouseEvent) => event.stopPropagation();
+  const slug = title
+    .toLowerCase()
+    .normalize('NFD')
+    .split('')
+    .filter((char) => {
+      const code = char.charCodeAt(0);
+      return code < 0x0300 || code > 0x036f;
+    })
+    .join('')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
 
   return (
     <>
@@ -35,8 +46,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, role, description, sta
             className="aspect-video w-full object-cover"
           />
         ) : (
-          <div className="aspect-video w-full bg-ink dark:bg-paper-border/10 flex items-center justify-center border-b border-paper-border dark:border-ink-border">
-            <span className="font-mono text-4xl text-paper/15 dark:text-paper/10 select-none">{'</>'}</span>
+          <div className="aspect-video w-full flex flex-col justify-between gap-2 border-b border-paper-border dark:border-ink-border bg-ink px-5 py-4">
+            <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider">
+              <span className="text-amber">GET</span>
+              <span className="text-ok">200 OK</span>
+            </div>
+            <span className="font-mono text-sm text-paper/35 truncate">/{slug}</span>
           </div>
         )}
 

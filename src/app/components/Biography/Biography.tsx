@@ -83,6 +83,16 @@ const Biography: React.FC<{ id: string }> = ({ id }) => {
           </div>
         </div>
       </main>
+      <div className="hidden justify-center pb-8 sm:flex">
+        <a
+          href="#knowledge"
+          aria-label={t.bio.scrollHint}
+          className="flex flex-col items-center gap-1 text-ink-muted/70 transition-colors hover:text-ink-muted"
+        >
+          <span className="font-mono text-[11px] uppercase tracking-[0.2em]">{t.bio.scrollHint}</span>
+          <span className="animate-bounce text-xs">↓</span>
+        </a>
+      </div>
     </section>
   );
 };
