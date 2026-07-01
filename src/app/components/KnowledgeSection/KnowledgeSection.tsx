@@ -71,16 +71,16 @@ const KnowledgeSection: FC<{ id: string }> = ({ id }) => {
         "Create and manage containers for development and production environments.",
       ),
     },
-    {
-      name: "Kubernetes",
-      icon: <AiOutlineKubernetes />,
-      accent: "#326CE5",
-      category: 'data',
-      description: d(
-        "Experiência prática configurando clusters e gerenciando deploys.",
-        "Hands-on experience configuring clusters and managing deployments.",
-      ),
-    },
+    // {
+    //   name: "Kubernetes",
+    //   icon: <AiOutlineKubernetes />,
+    //   accent: "#326CE5",
+    //   category: 'data',
+    //   description: d(
+    //     "Experiência prática configurando clusters e gerenciando deploys.",
+    //     "Hands-on experience configuring clusters and managing deployments.",
+    //   ),
+    // },
     {
       name: "Python",
       icon: <FaPython />,
