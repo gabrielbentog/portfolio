@@ -108,7 +108,6 @@ const translations = {
       statusLabel: 'status',
       statusValue: 'Aberto a novas oportunidades',
       primaryCta: 'Enviar e-mail',
-      downloadCV: 'Baixar currículo',
     },
     footer: {
       rights: 'Todos os direitos reservados.',
@@ -218,7 +217,6 @@ const translations = {
       statusLabel: 'status',
       statusValue: 'Open to new opportunities',
       primaryCta: 'Send an email',
-      downloadCV: 'Download résumé',
     },
     footer: {
       rights: 'All rights reserved.',

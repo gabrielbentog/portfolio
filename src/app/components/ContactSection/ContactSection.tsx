@@ -1,5 +1,5 @@
 "use client";
-import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import Link from 'next/link';
 import { useLanguage } from '../../context/LanguageContext';
@@ -55,14 +55,6 @@ const ContactSection: React.FC<{ id: string }> = ({ id }) => {
             <FaLinkedin className="h-6 w-6" />
             <span className="font-mono text-xs">LinkedIn</span>
           </Link>
-          <a
-            href="/curriculo.pdf"
-            download
-            className="flex flex-col items-center gap-2 text-paper/60 transition-colors hover:text-paper"
-          >
-            <FaFileAlt className="h-6 w-6" />
-            <span className="font-mono text-xs">{t.contact.downloadCV}</span>
-          </a>
         </div>
       </div>
     </section>
