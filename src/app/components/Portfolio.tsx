@@ -6,32 +6,32 @@ import { content, links, type Content, type Language, type Project } from '../co
 const LETTER_RADIUS = 260;
 const LETTER_FORCE = 70;
 const CELL_COUNT = 192;
-// Underlined initials "GB" with sparkles, one drawing per grid width (24 columns on desktop, 16 on mobile).
-const MONOGRAM: Record<number, string[]> = {
+// A terminal prompt ">_" drawn on the grid, one drawing per grid width (24 columns on desktop, 16 on mobile).
+const GRID_DRAWING: Record<number, string[]> = {
   24: [
-    '.....................#..',
-    '...#....###..###........',
-    '..###..#.....#..#.......',
-    '...#...#.##..###....#...',
-    '.......#..#..#..#..###..',
-    '........###..###....#...',
-    '.#......................',
-    '.......##########.......',
+    '............#...........',
+    '.....#.............#....',
+    '......#.................',
+    '.......#................',
+    '......#.................',
+    '.....#....######........',
+    '........................',
+    '..#.....................',
   ],
   16: [
-    '..............#.',
-    '#...###..###....',
-    '...#.....#..#...',
-    '...#.##..###....',
-    '...#..#..#..#..#',
-    '....###..###....',
+    '.........#......',
+    '..#...........#.',
+    '...#............',
+    '....#...........',
+    '...#............',
+    '..#....######...',
+    '................',
     '#...............',
-    '...##########...',
   ],
 };
 
-const monogramCells = (cols: number) =>
-  Array.from({ length: CELL_COUNT }, (_, i) => MONOGRAM[cols][Math.floor(i / cols)]?.[i % cols] === '#');
+const drawingCells = (cols: number) =>
+  Array.from({ length: CELL_COUNT }, (_, i) => GRID_DRAWING[cols][Math.floor(i / cols)]?.[i % cols] === '#');
 
 function Clock() {
   const [time, setTime] = useState('');
@@ -188,11 +188,11 @@ function Work({ t }: { t: Content }) {
 }
 
 function Lab({ t }: { t: Content }) {
-  const [cells, setCells] = useState(() => monogramCells(24));
+  const [cells, setCells] = useState(() => drawingCells(24));
   const paint = useRef<boolean | null>(null);
 
   useEffect(() => {
-    if (window.matchMedia('(max-width: 900px)').matches) setCells(monogramCells(16));
+    if (window.matchMedia('(max-width: 900px)').matches) setCells(drawingCells(16));
   }, []);
 
   const setCell = (i: number, v: boolean) =>
