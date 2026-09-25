@@ -24,8 +24,6 @@ export const content = {
     city: 'Brasília',
     nav: { work: 'Trabalho', lab: 'Lab', contact: 'Contato ↘' },
     index: ['Índice 001', 'Portfólio 2022—2026'],
-    available: 'Disponível',
-    availableNote: 'para novas oportunidades',
     title: ['Código', 'que', 'entrega.'],
     hint: 'Passe o mouse no título. As letras fogem do cursor — o resto do site é mais comportado.',
     intro:
@@ -62,8 +60,6 @@ export const content = {
     city: 'Brasília',
     nav: { work: 'Work', lab: 'Lab', contact: 'Contact ↘' },
     index: ['Index 001', 'Portfolio 2022—2026'],
-    available: 'Available',
-    availableNote: 'for new opportunities',
     title: ['Code', 'that', 'ships.'],
     hint: 'Hover the title. The letters run from your cursor — the rest of the site behaves.',
     intro:

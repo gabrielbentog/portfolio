@@ -128,7 +128,6 @@ img { display: block; max-width: 100%; }
 /* — hero — */
 .hero { padding: 56px var(--gutter) 0; }
 .hero-meta { font-size: 12px; line-height: 1.5; color: var(--color-neutral-500); margin-bottom: 24px; }
-.hero-available { grid-column: 10 / span 3; display: flex; gap: 8px; align-items: flex-start; }
 .hero-title {
   display: flex; font-size: clamp(64px, 17vw, 280px); line-height: .86;
   letter-spacing: -.055em; font-weight: 500;

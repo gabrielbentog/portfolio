@@ -6,7 +6,32 @@ import { content, links, type Content, type Language, type Project } from '../co
 const LETTER_RADIUS = 260;
 const LETTER_FORCE = 70;
 const CELL_COUNT = 192;
-const INITIAL_CELLS = [29, 30, 31, 53, 56, 77, 80, 101, 102, 103, 125, 149, 173];
+// Underlined initials "GB" with sparkles, one drawing per grid width (24 columns on desktop, 16 on mobile).
+const MONOGRAM: Record<number, string[]> = {
+  24: [
+    '.....................#..',
+    '...#....###..###........',
+    '..###..#.....#..#.......',
+    '...#...#.##..###....#...',
+    '.......#..#..#..#..###..',
+    '........###..###....#...',
+    '.#......................',
+    '.......##########.......',
+  ],
+  16: [
+    '..............#.',
+    '#...###..###....',
+    '...#.....#..#...',
+    '...#.##..###....',
+    '...#..#..#..#..#',
+    '....###..###....',
+    '#...............',
+    '...##########...',
+  ],
+};
+
+const monogramCells = (cols: number) =>
+  Array.from({ length: CELL_COUNT }, (_, i) => MONOGRAM[cols][Math.floor(i / cols)]?.[i % cols] === '#');
 
 function Clock() {
   const [time, setTime] = useState('');
@@ -163,8 +188,12 @@ function Work({ t }: { t: Content }) {
 }
 
 function Lab({ t }: { t: Content }) {
-  const [cells, setCells] = useState(() => Array.from({ length: CELL_COUNT }, (_, i) => INITIAL_CELLS.includes(i)));
+  const [cells, setCells] = useState(() => monogramCells(24));
   const paint = useRef<boolean | null>(null);
+
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 900px)').matches) setCells(monogramCells(16));
+  }, []);
 
   const setCell = (i: number, v: boolean) =>
     setCells((c) => (c[i] === v ? c : c.map((on, j) => (j === i ? v : on))));
@@ -226,7 +255,6 @@ export default function Portfolio() {
       <section className="hero">
         <div className="g12 hero-meta">
           <div className="span-3">{t.index[0]}<br />{t.index[1]}</div>
-          <div className="hero-available"><span className="tag tag-accent">{t.available}</span><span>{t.availableNote}</span></div>
         </div>
         <Title words={t.title} />
         <div className="hero-hint"><span className="hint-bar" />{t.hint}</div>

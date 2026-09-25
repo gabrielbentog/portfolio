@@ -7,13 +7,13 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", weight: ["40
 export const metadata: Metadata = {
   title: "Gabriel Bento — Desenvolvedor Backend Ruby on Rails",
   description:
-    "Desenvolvedor backend especializado em Ruby on Rails, APIs RESTful e integrações externas (Vimeo, Google Drive, ERPs). Aberto a novas oportunidades.",
+    "Desenvolvedor backend especializado em Ruby on Rails, APIs RESTful e integrações externas (Vimeo, Google Drive, ERPs).",
   keywords: ["Ruby on Rails", "Backend Developer", "API", "PostgreSQL", "Brasília", "Gabriel Bento"],
   authors: [{ name: "Gabriel Bento", url: "https://github.com/gabrielbentog" }],
   openGraph: {
     title: "Gabriel Bento — Desenvolvedor Backend Ruby on Rails",
     description:
-      "Desenvolvedor backend especializado em Ruby on Rails, APIs RESTful e integrações externas. Aberto a novas oportunidades.",
+      "Desenvolvedor backend especializado em Ruby on Rails, APIs RESTful e integrações externas.",
     type: "website",
     locale: "pt_BR",
     alternateLocale: "en_US",
